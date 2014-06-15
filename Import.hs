@@ -59,7 +59,7 @@ instance (ToField a, ToField b, ToField c, ToField d, ToField e, ToField f,
          toField g, toField h, toField i, toField j, toField k, toField l,
          toField m, toField n, toField o]
 
-main = do file <- L.readFile "WebExtract.txt"
+main = do file <- L.readFile "WebExtractClean.txt"
           conn <- connectPostgreSQL "host='localhost' dbname='restaurants' user='restaurants' password='111'"
           execute_ conn "CREATE TABLE IF NOT EXISTS raw_data (id serial primary key, camis text,dba text,boro text,building text,street text,zipcode text,phone text,cuisinecode text,inspdate text,action text,violcode text,score text,currentgrade text,gradedate text,recorddate text);"
           execute_ conn "DELETE FROM raw_data;"
